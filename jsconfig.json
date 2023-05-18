@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "noImplicitAny": false,
+    "useUnknownInCatchVariables": false,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"],
+      "@components/*": ["src/features/components/*"],
+      "@pages/*": ["src/features/components/pages/*"],
+      "@atoms/*": ["src/features/components/atoms/*"],
+      "@molecules/*": ["src/features/components/molecules/*"],
+      "@organisms/*": ["src/features/components/organisms/*"],
+      "@templates/*": ["src/features/components/templates/*"]
+    }
+  },
+  "include": ["./src", "src/**/*"],
+  "exclude": ["node_modules"]
+}
