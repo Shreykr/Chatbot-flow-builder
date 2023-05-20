@@ -4,8 +4,8 @@ export const HomeTemplateWrapper = styled.div`
   display: flex;
   flex-flow: column nowrap;
   gap: 10px;
-  padding: 10px;
-  height: 100dvh;
+  padding: 8px;
+  height: fit-content;
 `
 
 export const NavWrapper = styled.nav`
@@ -14,7 +14,7 @@ export const NavWrapper = styled.nav`
   width: 100%;
   padding: 10px;
   height: 4.5rem;
-  background-color: rgb(217, 220, 214);
+  background-color: hsla(90, 8%, 85%, 1);
   align-items: center;
   border-radius: 10px;
 
@@ -22,7 +22,7 @@ export const NavWrapper = styled.nav`
     margin: 0px 5rem 0px auto;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1033px) {
     .button-container {
       margin: 0px 0.4rem 0px auto;
     }
@@ -35,20 +35,31 @@ export const MainWrapper = styled.div`
   gap: 10px;
 
   .flow-container {
-    background-color: rgb(217, 220, 214);
-    height: 87dvh;
-    flex-basis: 75%;
+    background-color: hsla(84, 14%, 93%, 1);
+    height: 88dvh;
+    flex-basis: 65%;
     border-radius: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
   }
 
   .sidebar-container {
-    background-color: rgb(217, 220, 214);
-    height: 87dvh;
-    flex-basis: 25%;
+    background-color: hsla(84, 14%, 93%, 1);
+    height: 88dvh;
+    width: 100%;
+    flex-basis: 35%;
     border-radius: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: flex-start;
+    padding: 20px;
+    gap: 30px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1033px) {
     display: flex;
     flex-flow: column nowrap;
     gap: 10px;

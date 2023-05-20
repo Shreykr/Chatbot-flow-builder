@@ -2,8 +2,8 @@ import styled from "styled-components"
 
 export const ButtonWrapper = styled.button`
   border-radius: 8px;
-  border: 1.25px solid #314ac7;
-  color: #314ac7;
+  border: 1.25px solid #203dcdcb;
+  color: #203dcdcb;
   font-weight: 500;
   font-size: 1.05rem;
   padding: 0.55rem;
@@ -11,9 +11,9 @@ export const ButtonWrapper = styled.button`
   text-shadow: 0.25px 0.25px 0.75px #314ac7;
   cursor: pointer;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1033px) {
     padding: 0.475rem;
-    width: 15vmax;
+    width: auto;
     font-size: 1rem;
   }
 

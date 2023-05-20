@@ -1,1 +1,1 @@
-export { default as HomeTemplate } from "./HomeTemplate/HomeTemplate.jsx"
+export { default as HomeTemplate } from "../modules/HomeModule/HomeTemplate/HomeTemplate.jsx"

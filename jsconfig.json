@@ -23,9 +23,7 @@
       "@components/*": ["src/features/components/*"],
       "@pages/*": ["src/features/components/pages/*"],
       "@atoms/*": ["src/features/components/atoms/*"],
-      "@molecules/*": ["src/features/components/molecules/*"],
-      "@organisms/*": ["src/features/components/organisms/*"],
-      "@templates/*": ["src/features/components/templates/*"]
+      "@modules/*": ["src/features/components/modules/*"]
     }
   },
   "include": ["./src", "src/**/*"],
