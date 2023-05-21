@@ -1,32 +1,10 @@
-import { useState, useEffect } from "react"
 import { Icon, Label } from "@components/atoms"
 import { MainNodeWrapper } from "./style"
 import { memo } from "react"
-import {
-  Handle,
-  Position,
-  useReactFlow,
-  getConnectedEdges,
-  useStore,
-} from "reactflow"
+import { Handle, Position } from "reactflow"
+import { useConnectableFn } from "../hooks/MainNode"
 
-const MainNode = ({ id, data, isConnectable }) => {
-  const useConnectableFn = (id, direction) => {
-    const edgesCount = useStore((store) => store.edges.length)
-    const { getNode, getEdges } = useReactFlow()
-    const [hasConnections, setHasConnections] = useState(false)
-
-    useEffect(() => {
-      setHasConnections(() => {
-        const edges = getConnectedEdges([getNode(id)], getEdges()).filter(
-          (e) => e[direction] === id
-        )
-        return edges.length > 0
-      })
-    }, [getNode, getEdges, id, edgesCount, direction])
-
-    return hasConnections
-  }
+const MainNode = ({ id, data, selected, isConnectable }) => {
   const hasSourceConnections = useConnectableFn(id, "source")
   const MemoizedComponent = memo(() => {
     return (
@@ -37,7 +15,7 @@ const MainNode = ({ id, data, isConnectable }) => {
           style={{ background: "#555" }}
           isConnectable={isConnectable}
         />
-        <MainNodeWrapper>
+        <MainNodeWrapper selected={selected}>
           <div className='header-container'>
             <Icon color='black' size={20} iconName='BiMessageRoundedDetail' />
             <Label
@@ -55,7 +33,7 @@ const MainNode = ({ id, data, isConnectable }) => {
               size='clamp(1.1rem, 2vw , 1.2rem)'
               padding='0px 10px'
               weight={500}
-              label={data.label === "Message" ? "text message" : ""}
+              label={data.label === "Message" ? data.content : ""}
             />
           </div>
         </MainNodeWrapper>

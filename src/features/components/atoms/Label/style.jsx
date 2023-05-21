@@ -16,4 +16,5 @@ export const LabelWrapper = styled.span`
       : "2.5px"};
   font-size: ${(props) => props.size || "0.9rem"};
   font-weight: ${(props) => props.weight || "300"};
+  opacity: ${(props) => props.opacity || "1"};
 `

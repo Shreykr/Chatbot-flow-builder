@@ -55,8 +55,10 @@ export const MainWrapper = styled.div`
     flex-flow: row wrap;
     justify-content: center;
     align-content: flex-start;
-    padding: 20px;
-    gap: 30px;
+    ${(props) =>
+      props.nodeSelected.length === 0
+        ? `padding: 20px; gap:30px;`
+        : `padding: 0px; gap:0px;`};
   }
 
   @media screen and (max-width: 1033px) {
