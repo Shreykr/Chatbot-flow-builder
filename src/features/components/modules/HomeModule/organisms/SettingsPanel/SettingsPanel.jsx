@@ -1,14 +1,21 @@
 import { SettingsBody, SettingsHeader } from "@modules/HomeModule"
 import { SettingsWrapper } from "./style"
 
-const SettingsPanel = ({ nodeSelected, setNodeSelected }) => {
+const SettingsPanel = ({
+  nodeSelected,
+  setNodeSelected,
+  setNodeMessage,
+}) => {
   return (
     <SettingsWrapper>
       <SettingsHeader
         nodeSelected={nodeSelected}
         setNodeSelected={setNodeSelected}
       />
-      <SettingsBody nodeSelected={nodeSelected} />
+      <SettingsBody
+        nodeSelected={nodeSelected}
+        setNodeMessage={setNodeMessage}
+      />
     </SettingsWrapper>
   )
 }

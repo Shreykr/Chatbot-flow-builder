@@ -1,12 +1,19 @@
 import { Label } from "@components/atoms"
 import { BodyWrapper } from "./style"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-const SettingsBody = ({ nodeSelected }) => {
-  const [value, setValue] = useState()
+const SettingsBody = ({ nodeSelected, setNodeMessage }) => {
+  const [value, setValue] = useState(nodeSelected[0].data.content)
+
+  useEffect(() => {
+    setValue(nodeSelected[0].data.content)
+  }, [nodeSelected])
+
   const handleChange = (event) => {
+    setNodeMessage(event.target.value)
     setValue(event.target.value)
   }
+
   return (
     <BodyWrapper>
       <Label

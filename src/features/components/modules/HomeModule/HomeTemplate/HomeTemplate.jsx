@@ -41,9 +41,8 @@ const HomeTemplate = () => {
   const [edges, setEdges, onEdgesChange] = useEdgesState([])
   const [reactFlowInstance, setReactFlowInstance] = useState(null)
   const [nodeSelected, setNodeSelected] = useState([])
-  console.log(`nodeSelected:`, nodeSelected)
-  const [nodeMessage, setNodeMessage] = useState("text message")
-  console.log(`setNodeMessage:`, setNodeMessage)
+  const [nodeMessage, setNodeMessage] = useState("message")
+
   const nodeTypes = useMemo(() => ({ mainNode: MainNode }), [])
 
   useEffect(() => {
@@ -55,6 +54,20 @@ const HomeTemplate = () => {
       })
     }
   }, [nodeSelected])
+
+  useEffect(() => {
+    setNodes((nds) =>
+      nds.map((node) => {
+        if (node.id === nodeSelected[0].id) {
+          node.data = {
+            ...node.data,
+            content: nodeMessage,
+          }
+        }
+        return node
+      })
+    )
+  }, [nodeMessage, setNodes])
 
   const onConnect = useCallback(
     (params) =>
@@ -98,7 +111,6 @@ const HomeTemplate = () => {
         sourcePosition: "right",
         targetPosition: "left",
       }
-
       if (type === "Message") {
         setNodes((nds) => nds.concat(newNode))
       }
@@ -137,7 +149,8 @@ const HomeTemplate = () => {
               <SettingsPanel
                 nodeSelected={nodeSelected}
                 setNodeSelected={setNodeSelected}
-              ></SettingsPanel>
+                setNodeMessage={setNodeMessage}
+              />
             )}
           </aside>
         </MainWrapper>

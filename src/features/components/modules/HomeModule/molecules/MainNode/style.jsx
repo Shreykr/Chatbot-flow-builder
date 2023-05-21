@@ -10,6 +10,7 @@ export const MainNodeWrapper = styled.div`
   box-shadow: 0px 0px 15px 0px rgba(29, 0, 10, 0.2),
     0px 2px 3px 0px rgba(29, 0, 10, 0.2);
   justify-content: space-between;
+  overflow-x: hidden;
 
   outline: ${(props) => (props.selected ? "3.5px solid #8194B7" : "")};
   .header-container {
@@ -36,8 +37,17 @@ export const MainNodeWrapper = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
+    max-width: 100%;
     height: 60%;
     background-color: hsla(84, 14%, 93%, 1);
-    border-radius: 10px;
+    border-radius: 0px 0px 10px 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .body-container span {
+    width: 100%;
+    height: 60%;
+    word-wrap: break-word;
   }
 `

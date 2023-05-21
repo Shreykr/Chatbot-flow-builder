@@ -6,6 +6,11 @@ export const HomeTemplateWrapper = styled.div`
   gap: 10px;
   padding: 8px;
   height: fit-content;
+
+  .react-flow__handle {
+    width: 10px;
+    height: 10px;
+  }
 `
 
 export const NavWrapper = styled.nav`
