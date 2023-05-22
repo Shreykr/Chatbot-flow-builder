@@ -10,7 +10,6 @@ import { HeaderWrapper } from "./style"
  *
  */
 const SettingsHeader = ({ nodeSelected, setNodeSelected }) => {
-  console.log("rerendering")
   const SettingsComponent = memo(() => {
     return (
       <HeaderWrapper>
