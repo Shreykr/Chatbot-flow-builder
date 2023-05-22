@@ -43,7 +43,7 @@ const FlowPlayground = ({
           fitView
         >
           <Controls />
-          <MiniMap />
+          <MiniMap zoomable pannable style/>
           <Background variant={BackgroundVariant.Cross} gap={50} />
         </ReactFlow>
       </div>

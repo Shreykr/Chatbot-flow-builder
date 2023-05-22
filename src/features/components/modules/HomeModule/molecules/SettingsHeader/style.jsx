@@ -10,5 +10,13 @@ export const HeaderWrapper = styled.div`
 
   .arrow-back-icon {
     margin: 0px 0px 0px 10px;
+    cursor: pointer;
+  }
+  .arrow-back-icon:hover {
+    transform: scale(1.15);
+    transition: transform 0.05s linear;
+  }
+  .arrow-back-icon:active {
+    transform: scale(1);
   }
 `

@@ -1,3 +1,4 @@
 export { default as Button } from "./Button/Button"
 export { default as Icon } from "./Icon/Icon"
 export { default as Label } from "./Label/Label"
+export { default as Toast } from "./Toast/Toast"

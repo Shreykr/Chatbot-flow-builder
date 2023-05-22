@@ -41,7 +41,7 @@ export const MainWrapper = styled.div`
 
   .flow-container {
     background-color: hsla(84, 14%, 93%, 1);
-    height: 88dvh;
+    height: 86dvh;
     flex-basis: 65%;
     border-radius: 10px;
     display: flex;
@@ -52,7 +52,7 @@ export const MainWrapper = styled.div`
 
   .sidebar-container {
     background-color: hsla(84, 14%, 93%, 1);
-    height: 88dvh;
+    height: 86dvh;
     width: 100%;
     flex-basis: 35%;
     border-radius: 10px;
