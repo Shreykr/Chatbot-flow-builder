@@ -8,7 +8,6 @@ Web app using React Flow
 - [Getting Started](#started)
 - [Pre-requisites](#require)
 - [Installation](#installation)
-- [Screenshot](#screenshot)
 - [Hosted web application](#hosted-app)
 
 ## Technologies Used<a name="tused"></a>
