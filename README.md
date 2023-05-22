@@ -1,6 +1,6 @@
 # Chatbot flow builder
 
-React Flow web app using Vite.
+Web app using React Flow
 
 # Table of Contents
 
