@@ -1,6 +1,8 @@
 import styled from "styled-components"
 
-export const ButtonWrapper = styled.button`
+export const ButtonWrapper = styled.button.attrs((props) => ({
+  disabled: props.disabled,
+}))`
   border-radius: 8px;
   border: 1.25px solid #203dcdcb;
   color: #203dcdcb;

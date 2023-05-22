@@ -9,6 +9,13 @@ import { FlowWrapper } from "./style"
 
 const defaultViewport = { x: 0, y: 0, zoom: 0.15 }
 
+/*
+ * FlowPlayground component
+ *
+ * Contains custom node "MainNode" formed when dropped
+ * Contains controls and minimap provided by react-flow added for more control
+ *
+ */
 const FlowPlayground = ({
   reactFlowWrapper,
   nodes,
@@ -23,6 +30,7 @@ const FlowPlayground = ({
   useOnSelectionChange,
   setNodeSelected,
 }) => {
+  // react-flow method used to listed to node selection event and update selected nodes
   useOnSelectionChange({
     onChange: ({ nodes }) => setNodeSelected(nodes),
   })
@@ -42,9 +50,10 @@ const FlowPlayground = ({
           defaultViewport={defaultViewport}
           fitView
         >
+          {/* Optional */}
           <Controls />
-          <MiniMap zoomable pannable style/>
-          <Background variant={BackgroundVariant.Cross} gap={50} />
+          <MiniMap zoomable pannable style />
+          <Background variant={BackgroundVariant.Cross} gap={50} />{" "}
         </ReactFlow>
       </div>
     </FlowWrapper>

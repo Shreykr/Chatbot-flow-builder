@@ -1,6 +1,13 @@
 import { Fragment } from "react"
 import { ContentNode } from "@modules/HomeModule"
 
+/*
+ * NodePanel component
+ *
+ * Houses all the types of nodes as defined in nodeTemplates
+ * UI is shown when there are no nodes selected in the playground
+ *
+ */
 const NodePanel = ({ nodeTemplates }) => {
   return (
     <>

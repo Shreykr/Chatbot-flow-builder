@@ -11,9 +11,15 @@ export const HomeTemplateWrapper = styled.div`
     width: 10px;
     height: 10px;
   }
+  .react-flow__handle-right {
+    right: -8px;
+  }
+  .react-flow__handle-left {
+    left: -8px;
+  }
 `
 
-export const NavWrapper = styled.nav`
+export const HeaderWrapper = styled.header`
   display: flex;
   flex-flow: row nowrap;
   width: 100%;

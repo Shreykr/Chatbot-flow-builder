@@ -1,14 +1,23 @@
+import { memo } from "react"
 import { Icon, Label } from "@components/atoms"
 import { MainNodeWrapper } from "./style"
-import { memo } from "react"
-import { Handle, Position } from "reactflow"
 import { useConnectableFn } from "../hooks/MainNode"
+import { Handle, Position } from "reactflow"
 
+/*
+ * MainNode component
+ *
+ * Custom UI for nodes in the FlowPlayground component
+ * Combines Icon and Label atoms with source and target handles
+ * Uses hasSourceConnections to determine whether handles can have edges
+ *
+ */
 const MainNode = ({ id, data, selected, isConnectable }) => {
   const hasSourceConnections = useConnectableFn(id, "source")
   const MemoizedComponent = memo(() => {
     return (
       <>
+        {/* Source handle on the left side */}
         <Handle
           type='target'
           position={Position.Left}
@@ -23,7 +32,7 @@ const MainNode = ({ id, data, selected, isConnectable }) => {
               size='clamp(1.1rem, 1.825vw , 1.15rem)'
               margin='0px 7px'
               weight={700}
-              label='Send Message'
+              label={data.label === "Message" ? "Send Message" : ""}
             />
             <Icon color='black' size={23} iconName='RiWhatsappFill' />
           </div>
@@ -37,6 +46,7 @@ const MainNode = ({ id, data, selected, isConnectable }) => {
             />
           </div>
         </MainNodeWrapper>
+        {/* Target handle on the right side */}
         <Handle
           type='source'
           position={Position.Right}
@@ -47,7 +57,7 @@ const MainNode = ({ id, data, selected, isConnectable }) => {
     )
   })
 
-  MemoizedComponent.displayName = "MemoisedComponent"
+  MemoizedComponent.displayName = "MemoizedComponent"
 
   return <MemoizedComponent />
 }

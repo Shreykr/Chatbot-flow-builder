@@ -17,4 +17,5 @@ export const LabelWrapper = styled.span`
   font-size: ${(props) => props.size || "0.9rem"};
   font-weight: ${(props) => props.weight || "300"};
   opacity: ${(props) => props.opacity || "1"};
+  user-select: ${(props) => props.userSelect || "auto"};
 `

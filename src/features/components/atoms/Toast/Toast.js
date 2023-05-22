@@ -13,7 +13,7 @@ export default function Toast(type, message) {
       draggable: true,
       progress: undefined,
     });
-  }; // end of errorToast
+  };
 
   // toast message on success
   let successToast = (message) => {
@@ -26,7 +26,7 @@ export default function Toast(type, message) {
       draggable: true,
       progress: undefined,
     });
-  }; // end of successToast
+  };
 
   if (type === "error") {
     errorToast(message);

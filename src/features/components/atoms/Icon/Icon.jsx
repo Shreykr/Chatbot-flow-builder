@@ -2,8 +2,16 @@ import { IconWrapper } from "./style"
 import { BiMessageRoundedDetail, BiLeftArrowAlt } from "react-icons/bi"
 import { RiWhatsappFill } from "react-icons/ri"
 
+/*
+ * Icon component
+ *
+ * Reusable Icon UI
+ * It takes color, size, iconName and renders Icon based on iconName
+ *
+ */
 const Icon = ({ color, size, iconName }) => {
   let IconChoice
+  // Set IconChoice based on iconName
   switch (iconName) {
     case "BiMessageRoundedDetail":
       IconChoice = <BiMessageRoundedDetail color={color} size={size} />

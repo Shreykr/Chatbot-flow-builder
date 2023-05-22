@@ -1,7 +1,13 @@
 import { Icon, Label } from "@components/atoms"
 import { ContentNodeWrapper } from "./style"
-// import { useDrag } from "react-dnd"
 
+/*
+ * ContentNode component
+ *
+ * Renders nodes in the NodePanel
+ * Combines Icon and Label atoms
+ *
+ */
 const ContentNode = ({
   iconSize,
   labelSize,
@@ -9,16 +15,7 @@ const ContentNode = ({
   iconName,
   iconColor,
   content,
-  // id,
 }) => {
-  // const [{ isDragging }, drag] = useDrag(() => ({
-  //   type: "nodes",
-  //   item: { id: id },
-  //   collect: (monitor) => ({
-  //     isDragging: monitor.isDragging(),
-  //   }),
-  // }))
-
   const onDragStart = (event, nodeType) => {
     event.dataTransfer.setData("application/reactflow", nodeType)
     event.dataTransfer.effectAllowed = "move"

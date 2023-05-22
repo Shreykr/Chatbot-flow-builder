@@ -1,5 +1,11 @@
 import { LabelWrapper } from "./style"
 
+/*
+ * Label component
+ *
+ * Reusable Label UI
+ *
+ */
 const Label = ({
   color,
   size,
@@ -10,6 +16,7 @@ const Label = ({
   spacing,
   opacity,
   label,
+  userSelect,
 }) => {
   return (
     <LabelWrapper
@@ -21,6 +28,7 @@ const Label = ({
       margin={margin}
       spacing={spacing}
       opacity={opacity}
+      userSelect={userSelect}
     >
       {label}
     </LabelWrapper>
