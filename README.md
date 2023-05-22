@@ -48,10 +48,4 @@ You need to have or install the following:
   npm run dev
   ```
 
-#### Screenshot
-
-<p>
-    <img src="./chatbotflow.png" />
-</p>
-
 #### Hosted web application<a name="hosted-app"></a>
