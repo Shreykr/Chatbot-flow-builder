@@ -25,7 +25,7 @@ To install and run this app locally simply follow the instructions below:
 You need to have or install the following:
 
 1. Git bash
-2. Npm
+2. Npm / pnpm
 
 #### Installation<a name="installation"></a>
 
@@ -41,10 +41,19 @@ You need to have or install the following:
   ```
   npm install
   ```
+  
+  or if you prefer pnpm
+  
+  ```
+  npm install -g pnpm
+  pnpm i
+  ```
 
 - Start app
   ```
   npm run dev
+  or
+  pnpm run dev
   ```
 
 #### Hosted web application<a name="hosted-app"></a>
