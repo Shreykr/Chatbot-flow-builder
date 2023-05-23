@@ -8,6 +8,10 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   border-bottom: 1px solid #bdbcbc;
 
+  @media screen and (max-width: 1033px) {
+    padding: 10px 1px;
+  }
+
   .arrow-back-icon {
     margin: 0px 0px 0px 10px;
     cursor: pointer;

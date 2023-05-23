@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react"
 import { Label } from "@components/atoms"
 import { BodyWrapper } from "./style"
 
@@ -8,20 +7,7 @@ import { BodyWrapper } from "./style"
  * Renders input textarea with a label in the Settings Panel
  *
  */
-const SettingsBody = ({ nodeSelected, setNodeMessage }) => {
-  const [value, setValue] = useState(nodeSelected[0].data.content)
-
-  // Effect hook that uses content in selected node and updates text in textarea
-  useEffect(() => {
-    setValue(nodeSelected[0].data.content)
-  }, [nodeSelected])
-
-  // Event handler to change the content of selected node
-  const handleChange = (event) => {
-    setNodeMessage(event.target.value)
-    setValue(event.target.value)
-  }
-
+const SettingsBody = ({ setNodeContent, nodeSelected }) => {
   return (
     <BodyWrapper>
       <Label
@@ -37,9 +23,9 @@ const SettingsBody = ({ nodeSelected, setNodeMessage }) => {
         placeholder={
           nodeSelected[0]?.data.label === "Message" ? "Enter node message" : ""
         }
+        value={nodeSelected[0]?.data.content}
         rows='4'
-        value={value}
-        onChange={handleChange}
+        onChange={setNodeContent}
       />
     </BodyWrapper>
   )

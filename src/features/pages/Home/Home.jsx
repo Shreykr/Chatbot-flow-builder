@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useMemo, useEffect } from "react"
+import { useState, useRef, useCallback, useMemo } from "react"
 import { HomeTemplate, MainNode } from "@modules/HomeModule"
 import { Toast } from "@components/atoms"
 import {
@@ -21,13 +21,47 @@ const getId = () => `dndnode_${id++}`
  */
 
 const Home = () => {
-  // State variables to hold react-flow state, node content and its selection state
+  // State variables to hold react-flow state
   const reactFlowWrapper = useRef(null)
   const [nodes, setNodes, onNodesChange] = useNodesState([])
   const [edges, setEdges, onEdgesChange] = useEdgesState([])
   const [reactFlowInstance, setReactFlowInstance] = useState(null)
-  const [nodeSelected, setNodeSelected] = useState([])
-  const [nodeMessage, setNodeMessage] = useState("")
+
+  // Function to get the node selected
+  const nodeSelected = useMemo(() => {
+    return nodes.filter((node) => {
+      if (node.selected === true) {
+        return node
+      }
+    })
+  }, [nodes])
+
+  // Function to unselect node
+  const unselectNodes = useCallback(() => {
+    setNodes((nds) =>
+      nds.map((node) => {
+        if (node.selected === true) {
+          node.selected = false
+        }
+        return node
+      })
+    )
+  }, [])
+
+  // Function to set node content on text update in textarea of the settings panel
+  const setNodeContent = useCallback(() => {
+    setNodes((nds) =>
+      nds.map((node) => {
+        if (node?.id === nodeSelected[0]?.id) {
+          node.data = {
+            ...node.data,
+            content: event.target.value,
+          }
+        }
+        return node
+      })
+    )
+  }, [nodeSelected])
 
   // defining a custom node
   const nodeTypes = useMemo(() => ({ mainNode: MainNode }), [])
@@ -49,35 +83,6 @@ const Home = () => {
       ...resuableProperties,
     },
   ]
-
-  // Hook to update selected state of a node. Using this related UI is updated
-  useEffect(() => {
-    if (nodeSelected.length === 0) {
-      setNodes((nds) =>
-        nds.map((node) => {
-          if (node.selected === true) {
-            node.selected = false
-          }
-          return node
-        })
-      )
-    }
-  }, [nodeSelected])
-
-  // Hook to update the selected node content based on input change in the Settings Panel
-  useEffect(() => {
-    setNodes((nds) =>
-      nds.map((node) => {
-        if (node?.id === nodeSelected[0]?.id) {
-          node.data = {
-            ...node.data,
-            content: nodeMessage,
-          }
-        }
-        return node
-      })
-    )
-  }, [nodeMessage, setNodes])
 
   // Event handler for implementing the save logic as per the problem statement
   const saveHandle = () => {
@@ -109,12 +114,15 @@ const Home = () => {
             ...params,
             markerEnd: {
               type: MarkerType.ArrowClosed,
+              width: 30,
+              height: 30,
             },
+            style: { width: 20, height: "30%" },
           },
           eds
         )
       ),
-    []
+    [setEdges]
   )
 
   // Event called when the content is being dragged over droppable area
@@ -140,6 +148,7 @@ const Home = () => {
         x: event.clientX - reactFlowBounds.left,
         y: event.clientY - reactFlowBounds.top,
       })
+
       const newNode = {
         id: getId(),
         type: "mainNode",
@@ -151,7 +160,7 @@ const Home = () => {
 
       setNodes((nds) => nds.concat(newNode))
     },
-    [reactFlowInstance]
+    [reactFlowInstance, setNodes]
   )
 
   return (
@@ -163,6 +172,8 @@ const Home = () => {
           reactFlowWrapper={reactFlowWrapper}
           nodes={nodes}
           edges={edges}
+          setNodeContent={setNodeContent}
+          unselectNodes={unselectNodes}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
           onConnect={onConnect}
@@ -170,8 +181,6 @@ const Home = () => {
           nodeTypes={nodeTypes}
           onDragOver={onDragOver}
           onDrop={onDrop}
-          setNodeSelected={setNodeSelected}
-          setNodeMessage={setNodeMessage}
           nodeTemplates={nodeTemplates}
           useOnSelectionChange={useOnSelectionChange}
         />

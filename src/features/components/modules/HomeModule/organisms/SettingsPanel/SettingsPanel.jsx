@@ -8,16 +8,16 @@ import { SettingsWrapper } from "./style"
  * Rendered when a node is selected
  *
  */
-const SettingsPanel = ({ nodeSelected, setNodeSelected, setNodeMessage }) => {
+const SettingsPanel = ({ unselectNodes, nodeSelected, setNodeContent }) => {
   return (
     <SettingsWrapper>
       <SettingsHeader
         nodeSelected={nodeSelected}
-        setNodeSelected={setNodeSelected}
+        unselectNodes={unselectNodes}
       />
       <SettingsBody
         nodeSelected={nodeSelected}
-        setNodeMessage={setNodeMessage}
+        setNodeContent={setNodeContent}
       />
     </SettingsWrapper>
   )

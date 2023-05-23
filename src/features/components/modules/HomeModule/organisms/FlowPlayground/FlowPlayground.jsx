@@ -27,13 +27,7 @@ const FlowPlayground = ({
   nodeTypes,
   onDrop,
   onDragOver,
-  useOnSelectionChange,
-  setNodeSelected,
 }) => {
-  // react-flow method used to listed to node selection event and update selected nodes
-  useOnSelectionChange({
-    onChange: ({ nodes }) => setNodeSelected(nodes),
-  })
   return (
     <FlowWrapper>
       <div className='reactflow-wrapper' ref={reactFlowWrapper}>

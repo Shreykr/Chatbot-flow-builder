@@ -17,4 +17,11 @@ export const BodyWrapper = styled.div`
     font-size: clamp(1.1rem, 2vw, 1.15rem);
     letter-spacing: 1.5px;
   }
+  @media screen and (max-width: 1033px) {
+    border-bottom: 0px;
+
+    textarea {
+      resize: none;
+    }
+  }
 `

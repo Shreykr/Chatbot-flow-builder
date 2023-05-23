@@ -86,6 +86,7 @@ export const MainWrapper = styled.div`
     .sidebar-container {
       background-color: rgb(217, 220, 214);
       border-radius: 10px;
+      height: 15dvh;
     }
   }
 `

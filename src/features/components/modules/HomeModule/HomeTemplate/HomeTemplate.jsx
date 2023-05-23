@@ -23,10 +23,10 @@ const HomeTemplate = ({
   nodeTypes,
   onDragOver,
   onDrop,
-  setNodeSelected,
-  setNodeMessage,
   nodeTemplates,
   useOnSelectionChange,
+  setNodeContent,
+  unselectNodes,
 }) => {
   return (
     <HomeTemplateWrapper>
@@ -41,6 +41,9 @@ const HomeTemplate = ({
             reactFlowWrapper={reactFlowWrapper}
             nodes={nodes}
             edges={edges}
+            setNodeContent={setNodeContent}
+            unselectNodes={unselectNodes}
+            nodeSelected={nodeSelected}
             onNodesChange={onNodesChange}
             onEdgesChange={onEdgesChange}
             onConnect={onConnect}
@@ -49,16 +52,15 @@ const HomeTemplate = ({
             onDrop={onDrop}
             onDragOver={onDragOver}
             useOnSelectionChange={useOnSelectionChange}
-            setNodeSelected={setNodeSelected}
           />
         </main>
         <aside className='sidebar-container'>
           {nodeSelected?.length !== 0 &&
           nodeSelected[0]?.data?.label === "Message" ? ( // conditionally choose what Panel to render
             <SettingsPanel
+              unselectNodes={unselectNodes}
               nodeSelected={nodeSelected}
-              setNodeSelected={setNodeSelected}
-              setNodeMessage={setNodeMessage}
+              setNodeContent={setNodeContent}
             />
           ) : nodeSelected?.length === 0 ? (
             <NodePanel nodeTemplates={nodeTemplates} />

@@ -9,12 +9,13 @@ import { HeaderWrapper } from "./style"
  * The header text is based on the selected node
  *
  */
-const SettingsHeader = ({ nodeSelected, setNodeSelected }) => {
+const SettingsHeader = ({ unselectNodes, nodeSelected }) => {
+
   const SettingsComponent = memo(() => {
     return (
       <HeaderWrapper>
         {/* On click of the arrow icon, the selected node is unselected and Nodes Panel is shown */}
-        <div className='arrow-back-icon' onClick={() => setNodeSelected([])}>
+        <div className='arrow-back-icon' onClick={() => unselectNodes()}>
           <Icon color='black' size={30} iconName='BiLeftArrowAlt' />
         </div>
         <Label
