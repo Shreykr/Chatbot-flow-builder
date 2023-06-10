@@ -1,6 +1,8 @@
+import { useCallback } from "react"
 import { Button } from "@components/atoms"
 import { NodePanel, FlowPlayground, SettingsPanel } from "@modules/HomeModule"
 import { HomeTemplateWrapper, MainWrapper, HeaderWrapper } from "./styles"
+import { useReactFlow } from "reactflow"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
@@ -12,6 +14,8 @@ import "react-toastify/dist/ReactToastify.css"
  */
 const HomeTemplate = ({
   saveHandle,
+  setNodes,
+  setEdges,
   nodeSelected,
   reactFlowWrapper,
   nodes,
@@ -28,11 +32,30 @@ const HomeTemplate = ({
   setNodeContent,
   unselectNodes,
 }) => {
+  const { setViewport } = useReactFlow()
+  const onRestore = useCallback(() => {
+    const restoreFlow = () => {
+      const flow = JSON.parse(localStorage.getItem("flow-key"))
+
+      if (flow) {
+        const { x = 0, y = 0, zoom = 1 } = flow.viewport
+        setNodes(flow.nodes || [])
+        setEdges(flow.edges || [])
+        setViewport({ x, y, zoom })
+      }
+    }
+
+    restoreFlow()
+  }, [setNodes, setEdges, setViewport])
+
   return (
     <HomeTemplateWrapper>
       <HeaderWrapper>
         <div className='button-container' onClick={(e) => saveHandle(e)}>
           <Button type='button' text='Save Changes' disabled={false} />
+        </div>
+        <div onClick={onRestore}>
+          <Button type='button' text='Restore Changes' disabled={false} />{" "}
         </div>
       </HeaderWrapper>
       <MainWrapper nodeSelected={nodeSelected}>

@@ -101,6 +101,8 @@ const Home = () => {
     ) {
       Toast("error", "Cannot save Flow")
     } else {
+      const flow = reactFlowInstance.toObject()
+      localStorage.setItem("flow-key", JSON.stringify(flow))
       Toast("success", "Flow is valid and saved 😄")
     }
   }
@@ -172,6 +174,8 @@ const Home = () => {
           reactFlowWrapper={reactFlowWrapper}
           nodes={nodes}
           edges={edges}
+          setNodes={setNodes}
+          setEdges={setEdges}
           setNodeContent={setNodeContent}
           unselectNodes={unselectNodes}
           onNodesChange={onNodesChange}

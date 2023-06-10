@@ -41,6 +41,7 @@ const FlowPlayground = ({
           nodeTypes={nodeTypes}
           onDrop={onDrop}
           onDragOver={onDragOver}
+          selectNodesOnDrag={false}
           defaultViewport={defaultViewport}
           fitView
         >
